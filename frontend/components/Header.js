@@ -23,6 +23,22 @@ const StyledHeader = styled.header`
     padding: 20px;   
 `
 
+const StyledNav = styled.nav`
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+`
+
+const StyledMenuItem = styled.li`
+    margin-bottom: 8px;
+
+    a {
+        padding: 4px 0;
+    }
+`
+
 
 export const MAIN_MENU = gql`
     query GetMainMenuItems {
@@ -66,28 +82,28 @@ const Header = () => {
                 <Link href="/">
                     <a>Next.js WordPress Project</a>
                 </Link>
-                <nav>
+                <StyledNav>
                     <ul>
                         { menuItems.map( item => {
                             const subItems = item.childItems.edges.map( item => item?.node )
     
                             return (
-                                <li key={ item.databaseId }>
+                                <StyledMenuItem key={ item.databaseId }>
                                     <Link href="/[page]" as={ item.path }><a>{ item.label }</a></Link>
                                     { subItems.length > 0 ?
                                         <ul>
                                             { subItems.map( subItem => (
-                                                <li key={ subItem.databaseId }>
+                                                <StyledMenuItem key={ subItem.databaseId }>
                                                     <Link href="/[page]" as={ subItem.path }><a>{ subItem.label }</a></Link>
-                                                </li>
+                                                </StyledMenuItem>
                                             ))}
                                         </ul>
                                     : '' }
-                                </li>
+                                </StyledMenuItem>
                             )
                         })}
                     </ul>
-                </nav>
+                </StyledNav>
             </SiteContainer>
         </StyledHeader>
     )
