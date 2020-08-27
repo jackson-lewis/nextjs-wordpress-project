@@ -22,7 +22,7 @@ const StyledSiteSection = styled( SiteSection )`
 
 const GET_FEATURE_PRODUCTS = gql`
     query GetFeatureProducts {
-        products(where: {type: SIMPLE}, first: 8) {
+        products(where: {type: SIMPLE}, first: 4) {
             edges {
                 node {
                     ... on SimpleProduct {
