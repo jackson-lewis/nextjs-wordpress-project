@@ -52,6 +52,10 @@ const ProductSingle = ({ slug }) => {
     )
 }
 
+ProductSingle.propTypes = {
+    slug: PropTypes.string.isRequired
+}
+
 
 export async function getStaticProps({ params }) {
     const apolloClient = initializeApollo()

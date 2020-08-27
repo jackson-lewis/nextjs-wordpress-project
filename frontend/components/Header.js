@@ -1,21 +1,7 @@
-import Router from 'next/router'
 import Link from 'next/link'
 import { gql, useQuery } from '@apollo/client'
-import NProgress from 'nprogress'
 import styled from 'styled-components'
 import { SiteContainer } from './SiteLayout'
-
-
-Router.onRouteChangeStart = () => {
-    NProgress.start()
-}
-Router.onRouteChangeComplete = () => {
-    NProgress.done()
-}
-
-Router.onRouteChangeError = () => {
-    NProgress.done()
-}
 
 
 const StyledHeader = styled.header`
@@ -68,6 +54,16 @@ export const MAIN_MENU = gql`
     }
 `
 
+const PROD_URL = 'https://nextjs.jacksonlewis.dev'
+
+const calcPath = path => {
+    const url = PROD_URL.replace( /(\/)/g, '\\/' )
+    const regex = new RegExp( url )
+
+    return path.replace( regex, '' )
+}
+
+
 const Header = () => {
     const { data, loading, error } = useQuery( MAIN_MENU )
 
@@ -89,12 +85,12 @@ const Header = () => {
     
                             return (
                                 <StyledMenuItem key={ item.databaseId }>
-                                    <Link href="/[page]" as={ item.path }><a>{ item.label }</a></Link>
+                                    <Link href="/[page]" as={ calcPath( item.path ) }><a>{ item.label }</a></Link>
                                     { subItems.length > 0 ?
                                         <ul>
                                             { subItems.map( subItem => (
                                                 <StyledMenuItem key={ subItem.databaseId }>
-                                                    <Link href="/[page]" as={ subItem.path }><a>{ subItem.label }</a></Link>
+                                                    <Link href="/[page]" as={ calcPath( subItem.path ) }><a>{ subItem.label }</a></Link>
                                                 </StyledMenuItem>
                                             ))}
                                         </ul>

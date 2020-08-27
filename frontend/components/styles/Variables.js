@@ -5,8 +5,8 @@ const colors = {
     secondary: `#DE0DF4`,
     blue: `#44eaf2`,
 
-    white: `#FFFBFB`,
-    black: `#130207`,
+    white: `#FAFAFA`,
+    black: `#0F0F0F`,
     grey: `#D8CCCC`
 }
 

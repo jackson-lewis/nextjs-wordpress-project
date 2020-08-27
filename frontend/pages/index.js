@@ -12,6 +12,8 @@ import styled from 'styled-components'
 const StyledPageTitle = styled.h1`
     margin: auto;
     text-align: center;
+
+    font-size: 2rem;
 `
 
 const StyledSiteSection = styled( SiteSection )`
@@ -42,6 +44,7 @@ const GET_FEATURE_PRODUCTS = gql`
         }
     }
 `
+
 
 const HomePage = () => {
     const { data, loading, error } = useQuery( GET_FEATURE_PRODUCTS )
