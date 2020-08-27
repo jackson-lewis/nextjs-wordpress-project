@@ -1,0 +1,20 @@
+{
+    "folders": [
+        {
+            "name": "Root",
+            "path": "."
+        },
+        {
+            "name": "Frontend",
+            "path": "frontend"
+        },
+        {
+            "name": "Backend",
+            "path": "backend"
+        },
+        {
+            "name": "Theme",
+            "path": "backend/wp-content/themes/nextjs-backend"
+        }
+    ]
+}

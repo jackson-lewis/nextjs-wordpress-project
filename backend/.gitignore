@@ -1,0 +1,14 @@
+wp-admin/
+wp-includes/
+.htaccess
+/index.php
+license.txt
+liesmich.html
+readme.html
+wp-*.php
+xmlrpc.php
+config/
+wp-content/uploads
+wp-content/plugins
+wp-content/languages
+wp-content/upgrade

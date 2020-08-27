@@ -1,0 +1,12 @@
+{
+  "name": "next-wordpress-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ssh-staging": "ssh jacksonlewis.dev@ssh.stackcp.com"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
