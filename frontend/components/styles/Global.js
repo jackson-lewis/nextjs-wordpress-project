@@ -31,6 +31,12 @@ const GlobalStyles = createGlobalStyle`
         --border-radius: 4px;
     }
 
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         

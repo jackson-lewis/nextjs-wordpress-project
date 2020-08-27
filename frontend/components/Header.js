@@ -1,26 +1,28 @@
-import Router from 'next/router'
 import Link from 'next/link'
 import { gql, useQuery } from '@apollo/client'
-import NProgress from 'nprogress'
 import styled from 'styled-components'
 import { SiteContainer } from './SiteLayout'
-
-
-Router.onRouteChangeStart = () => {
-    NProgress.start()
-}
-Router.onRouteChangeComplete = () => {
-    NProgress.done()
-}
-
-Router.onRouteChangeError = () => {
-    NProgress.done()
-}
 
 
 const StyledHeader = styled.header`
     width: 100%;
     padding: 20px;   
+`
+
+const StyledNav = styled.nav`
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+`
+
+const StyledMenuItem = styled.li`
+    margin-bottom: 8px;
+
+    a {
+        padding: 4px 0;
+    }
 `
 
 
@@ -52,6 +54,16 @@ export const MAIN_MENU = gql`
     }
 `
 
+const PROD_URL = 'https://nextjs.jacksonlewis.dev'
+
+const calcPath = path => {
+    const url = PROD_URL.replace( /(\/)/g, '\\/' )
+    const regex = new RegExp( url )
+
+    return path.replace( regex, '' )
+}
+
+
 const Header = () => {
     const { data, loading, error } = useQuery( MAIN_MENU )
 
@@ -66,28 +78,28 @@ const Header = () => {
                 <Link href="/">
                     <a>Next.js WordPress Project</a>
                 </Link>
-                <nav>
+                <StyledNav>
                     <ul>
                         { menuItems.map( item => {
                             const subItems = item.childItems.edges.map( item => item?.node )
     
                             return (
-                                <li key={ item.databaseId }>
-                                    <Link href="/[page]" as={ item.path }><a>{ item.label }</a></Link>
+                                <StyledMenuItem key={ item.databaseId }>
+                                    <Link href="/[page]" as={ calcPath( item.path ) }><a>{ item.label }</a></Link>
                                     { subItems.length > 0 ?
                                         <ul>
                                             { subItems.map( subItem => (
-                                                <li key={ subItem.databaseId }>
-                                                    <Link href="/[page]" as={ subItem.path }><a>{ subItem.label }</a></Link>
-                                                </li>
+                                                <StyledMenuItem key={ subItem.databaseId }>
+                                                    <Link href="/[page]" as={ calcPath( subItem.path ) }><a>{ subItem.label }</a></Link>
+                                                </StyledMenuItem>
                                             ))}
                                         </ul>
                                     : '' }
-                                </li>
+                                </StyledMenuItem>
                             )
                         })}
                     </ul>
-                </nav>
+                </StyledNav>
             </SiteContainer>
         </StyledHeader>
     )

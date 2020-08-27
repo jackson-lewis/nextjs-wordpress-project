@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '../lib/apolloClient'
-import Header from '../components/Header'
 import { GlobalStyles } from "../components/styles/Global"
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 
 function App({ Component, pageProps }) {
@@ -18,6 +19,7 @@ function App({ Component, pageProps }) {
             <GlobalStyles />
             <Header />
             <Component {...pageProps} />
+            <Footer />
         </ApolloProvider>
     )
 }

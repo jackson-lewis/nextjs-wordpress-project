@@ -16,7 +16,7 @@ const GET_ALL_PAGES_BY_SLUG = gql`
 
 const GET_ALL_PRODUCTS_BY_SLUG = gql`
     query GetProductsBySlug {
-        products(where: {type: SIMPLE}) {
+        products(where: {type: SIMPLE}, first: 4) {
             edges {
                 node {
                     slug
