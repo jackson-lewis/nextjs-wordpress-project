@@ -21,3 +21,8 @@ add_action('graphql_register_types', function () {
         },
     ]);
 });
+
+
+add_filter( 'preview_post_link', function( $preview_link, $post ) {
+    return get_home_url( null, 'api/preview' );
+});
