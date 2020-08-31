@@ -27,6 +27,7 @@ const StyledMenuItem = styled.li`
 
     a {
         padding: 8px 0;
+        display: inline-block;
     }
 `
 
