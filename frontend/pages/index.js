@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 
 const StyledPageTitle = styled.h1`
-    margin: auto;
+    margin: auto 0 20px;
     text-align: center;
 
     font-size: 2rem;
@@ -62,6 +62,7 @@ const HomePage = () => {
             <StyledSiteSection>
                 <SiteContainer>
                     <StyledPageTitle>Next.js WordPress Project</StyledPageTitle>
+                    <img src="./do-something.jpg" alt="Do something" />
                 </SiteContainer>
             </StyledSiteSection>
 
