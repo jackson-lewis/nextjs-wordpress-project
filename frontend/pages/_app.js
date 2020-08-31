@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '../lib/apolloClient'
-import { GlobalStyles } from "../components/styles/Global"
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { useApollo } from '@lib/apolloClient'
+import { GlobalStyles } from "@styles/Global"
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 
 
 function App({ Component, pageProps }) {
@@ -14,7 +14,8 @@ function App({ Component, pageProps }) {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link href="https://fonts.gstatic.com/" rel="preconnect"></link>
-                <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.gstatic.com/" rel="dns-prefetch"></link>
+                <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" as="style" onLoad="this.onload=null;this.rel='stylesheet'"></link>
             </Head>
             <GlobalStyles />
             <Header />
@@ -24,5 +25,9 @@ function App({ Component, pageProps }) {
     )
 }
 
+export function reportWebVitals( metric ) {
+    console.log( metric )
+}
 
 export default App
+

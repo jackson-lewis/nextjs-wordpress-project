@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import PropTypes from 'prop-types'
 import { gql, useQuery } from '@apollo/client'
-import { initializeApollo } from '../../lib/apolloClient'
-import { MAIN_MENU } from '../../components/Header'
-import { getAllProductsBySlug } from '../../lib/api' 
-import { SiteSection, SiteContainer } from '../../components/SiteLayout'
+import { initializeApollo } from '@lib/apolloClient'
+import { MAIN_MENU } from '@components/Header'
+import { getAllProductsBySlug } from '@lib/api' 
+import { SiteSection, SiteContainer } from '@components/SiteLayout'
 
 
 const GET_PRODUCT = gql`
@@ -81,12 +82,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const data = await getAllProductsBySlug()
-
-    const products = data.data.products.edges?.map( ({ node }) => `/product/${node.slug}` ) || []
+    const paths = await getAllProductsBySlug()
 
     return {
-        paths: products,
+        paths,
         fallback: false
     }
 }

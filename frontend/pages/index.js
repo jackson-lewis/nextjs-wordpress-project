@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { gql, useQuery } from '@apollo/client'
-import { initializeApollo } from '../lib/apolloClient'
-import { MAIN_MENU } from '../components/Header'
-import ProductLoop from '../components/ProductLoop'
-import { getAllProductsBySlug } from '../lib/api' 
-import { SiteSection, SiteContainer } from '../components/SiteLayout'
+import { initializeApollo } from '@lib/apolloClient'
+import { MAIN_MENU } from '@components/Header'
+import ProductLoop from '@components/ProductLoop'
+import { getAllProductsBySlug } from '@lib/api' 
+import { SiteSection, SiteContainer } from '@components/SiteLayout'
 import styled from 'styled-components'
 
 
@@ -31,6 +31,7 @@ const GET_FEATURE_PRODUCTS = gql`
                         slug
                         price
                         image {
+                            alt
                             mediaDetails {
                                 sizes {
                                     sourceUrl

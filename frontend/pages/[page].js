@@ -2,24 +2,15 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { gql, useQuery } from '@apollo/client'
-import { initializeApollo } from '../lib/apolloClient'
-import { MAIN_MENU } from '../components/Header'
-import { getAllPagesBySlug } from '../lib/api' 
+import { initializeApollo } from '@lib/apolloClient'
+import { MAIN_MENU } from '@components/Header'
+import { PAGE } from '@gql/page'
+import { getAllPagesBySlug } from '@lib/api' 
 
-
-const GET_PAGE = gql`
-    query GetPageData($path: ID!) {
-        page(id: $path, idType: URI) {
-            databaseId
-            title
-            content
-        }
-    }
-`
 
 const DefaultPage = ({ path }) => {
 
-    const { data, loading, error } = useQuery( GET_PAGE, {
+    const { data, loading, error } = useQuery( PAGE, {
         variables: {
             path
         }
@@ -51,7 +42,7 @@ export async function getStaticProps({ params }) {
     })
 
     await apolloClient.query({
-        query: GET_PAGE,
+        query: PAGE,
         variables: {
             path: params.page
         }
@@ -67,12 +58,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const data = await getAllPagesBySlug()
-
-    const pages = data.data.pages.edges?.map( ({ node }) => `/${ node.slug }` ) || []
+    const paths = await getAllPagesBySlug()
 
     return {
-        paths: pages,
+        paths,
         fallback: false
     }
 }
