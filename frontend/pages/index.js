@@ -31,7 +31,6 @@ const GET_FEATURE_PRODUCTS = gql`
                         slug
                         price
                         image {
-                            alt
                             mediaDetails {
                                 sizes {
                                     sourceUrl
