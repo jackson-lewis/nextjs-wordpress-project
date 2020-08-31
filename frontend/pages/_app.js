@@ -12,6 +12,7 @@ function App({ Component, pageProps }) {
     return (
         <ApolloProvider client={ apolloClient }>
             <Head>
+                <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link href="https://fonts.gstatic.com/" rel="preconnect"></link>
                 <link href="https://fonts.gstatic.com/" rel="dns-prefetch"></link>
@@ -25,9 +26,6 @@ function App({ Component, pageProps }) {
     )
 }
 
-export function reportWebVitals( metric ) {
-    console.log( metric )
-}
 
 export default App
 

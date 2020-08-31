@@ -37,6 +37,7 @@ const GET_FEATURE_PRODUCTS = gql`
                                     name
                                 }
                             }
+                            altText
                         }
                     }
                 }
@@ -56,6 +57,7 @@ const HomePage = () => {
         <>
             <Head>
                 <title>Next.js WordPress Project</title>
+                <meta name="description" content="This is the experimental lab for Next.js and WordPress." />
             </Head>
             <StyledSiteSection>
                 <SiteContainer>

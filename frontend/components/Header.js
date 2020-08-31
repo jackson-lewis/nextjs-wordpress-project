@@ -9,6 +9,11 @@ const StyledHeader = styled.header`
     padding: 20px;   
 `
 
+const StyledLogo = styled.a`
+    margin-bottom: 30px;
+    display: inline-block;
+`
+
 const StyledNav = styled.nav`
     ul {
         list-style: none;
@@ -21,7 +26,7 @@ const StyledMenuItem = styled.li`
     margin-bottom: 8px;
 
     a {
-        padding: 4px 0;
+        padding: 8px 0;
     }
 `
 
@@ -76,7 +81,7 @@ const Header = () => {
         <StyledHeader>
             <SiteContainer>
                 <Link href="/">
-                    <a>Next.js WordPress Project</a>
+                    <StyledLogo>Next.js WordPress Project</StyledLogo>
                 </Link>
                 <StyledNav>
                     <ul>
