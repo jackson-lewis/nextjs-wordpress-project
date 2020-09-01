@@ -62,7 +62,7 @@ const HomePage = () => {
             <StyledSiteSection>
                 <SiteContainer>
                     <StyledPageTitle>Next.js WordPress Project</StyledPageTitle>
-                    <img src="./do-something.jpg" alt="Do something" />
+                    <img src="./beanie-with-logo-1.jpg" alt="Do something" />
                 </SiteContainer>
             </StyledSiteSection>
 
