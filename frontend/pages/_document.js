@@ -13,8 +13,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en-GB">
         <Head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta charSet="UTF-8" />
             <link href="https://fonts.gstatic.com/" rel="preconnect"></link>
             <link href="https://fonts.gstatic.com/" rel="dns-prefetch"></link>
             <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" as="style" onLoad="this.onload=null;this.rel='stylesheet'"></link>

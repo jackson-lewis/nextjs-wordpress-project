@@ -60,7 +60,7 @@ const Product = ({ data }) => {
         <StyledProduct>
             <Link href="/product/[slug]" as={ `/product/${ data.slug }` }>
                 <a>
-                    <StyledThumbnail src={ thumbnailUrl } alt={ data.image.altText } loading="lazy" />
+                    <StyledThumbnail src={ thumbnailUrl.replace( 'cms.', 'assets.' ) } alt={ data.image.altText } loading="lazy" />
                     <StyledProductDetails>
                         <StyledTitle>{ data.name }</StyledTitle>
                         <StyledPrice>{ data.price }</StyledPrice>
